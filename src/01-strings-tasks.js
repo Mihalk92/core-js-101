@@ -123,8 +123,8 @@ function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  return str.replace(value, '');
 }
 
 /**
@@ -218,19 +218,19 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-  let newStr = '';
-  for (let i = 0; i <= str.length; i += 1) {
-    const code = str.charCodeAt(i);
-    if ((code < 78 && code >= 65) || (code < 110 && code > 90)) {
-      newStr += String.fromCharCode(code + 13);
-    } else if (code < 65 || code > 122) {
-      newStr += String.fromCharCode(code);
-    } else {
-      newStr += String.fromCharCode(code - 13);
-    }
-  }
-  return newStr;
+function encodeToRot13(/* str */) {
+  // let newStr = '';
+  // for (let i = 0; i <= str.length; i += 1) {
+  //   const code = str.charCodeAt(i);
+  //   if ((code < 78 && code >= 65) || (code < 110 && code > 90)) {
+  //     newStr += String.fromCharCode(code + 13);
+  //   } else if (code < 65 || code > 122) {
+  //     newStr += String.fromCharCode(code);
+  //   } else {
+  //     newStr += String.fromCharCode(code - 13);
+  //   }
+  // }
+  // return newStr;
 }
 
 /**
@@ -247,7 +247,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  if (typeof value === 'string') {
+  if (typeof value === 'string' || value instanceof String) {
     return true;
   }
   return false;

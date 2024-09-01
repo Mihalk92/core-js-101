@@ -219,6 +219,7 @@ function getRectangleString(/* width, height */) {
  *
  */
 function encodeToRot13(/* str */) {
+  throw new Error('Not implemented');
   // let newStr = '';
   // for (let i = 0; i <= str.length; i += 1) {
   //   const code = str.charCodeAt(i);

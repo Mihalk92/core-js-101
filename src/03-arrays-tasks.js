@@ -335,6 +335,7 @@ function getPositivesCount(/* arr */) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(/* arr */) {
+  throw new Error('Not implemented');
   // const acc = [];
   // const result = [];
   // const obj = {
@@ -423,8 +424,8 @@ function findAllOccurrences(arr, item) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  // return arr.join(',');
+function toStringList(arr) {
+  return arr.join(',');
 }
 
 /**

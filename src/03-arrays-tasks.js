@@ -35,11 +35,14 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  const arr = [];
-  for (let i = 1; arr.length < len; i += 2) {
-    arr.push(i);
-  }
-  return arr;
+  const arr = new Array(len).fill(0);
+  let digit = 1;
+  const result = arr.map((el) => {
+    const digitBack = el + digit;
+    digit += 2;
+    return digitBack;
+  });
+  return result;
 }
 
 /**
@@ -238,9 +241,11 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  // let total = 0;
-  // return arr.map((el) => (total += el));
+function getMovingSum(arr) {
+  return arr.reduce((acc, number, index) => {
+    acc.push(acc[index - 1] ? acc[index - 1] + number : number);
+    return acc;
+  }, []);
 }
 
 /**
@@ -255,10 +260,7 @@ function getMovingSum(/* arr */) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  const result = [];
-  for (let i = 1; i < arr.length; i += 2) {
-    result.push(arr[i]);
-  }
+  const result = arr.filter((el) => arr.indexOf(el) % 2 !== 0);
   return result;
 }
 
@@ -276,8 +278,11 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  const result = [];
+  arr.map((el, index) => result.push(...Array(index + 1).fill(el)));
+
+  return result;
 }
 
 /**
@@ -310,15 +315,9 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  /* let count = 0;
-  arr.map((el) => {
-    if (el > 0 && typeof el !== 'string') {
-      count += 1;
-    }
-  });
-  return count;
-  */
+function getPositivesCount(arr) {
+  const result = arr.filter((el) => el > 0 && typeof el !== 'string');
+  return result.length;
 }
 
 /**
@@ -495,12 +494,13 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(start, end) {
-  const arr = [];
-  for (let i = start; i < end + 1; i += 1) {
-    arr.push(i);
-  }
-  return arr;
+function getIntervalArray(/* start, end */) {
+  throw new Error('Not implemented');
+  // const arr = [];
+  // for (let i = start; i < end + 1; i += 1) {
+  //   arr.push(i);
+  // }
+  // return arr;
 }
 
 /**

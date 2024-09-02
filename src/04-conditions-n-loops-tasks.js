@@ -171,6 +171,7 @@ function isInsideCircle(/* circle, point */) {
  *   'entente' => null
  */
 function findFirstSingleChar(/* str */) {
+  throw new Error('Not implemented');
   // const strToArr = str.split('');
   // for (const el of strToArr) {
   //   let acc = 0;
